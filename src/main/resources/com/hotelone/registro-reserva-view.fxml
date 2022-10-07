@@ -94,8 +94,16 @@
                            </VBox.margin>
                         </Label>
                         <ChoiceBox fx:id="pagamentoChoiceBox" prefHeight="24.0" prefWidth="267.0" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
                            <children>
+                              <Button fx:id="botaoCancelar" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292">
+                                 <padding>
+                                    <Insets bottom="7.0" top="7.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
                               <Button fx:id="botaoContinuar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoContinuarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Continuar" textFill="WHITE" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets />
@@ -138,9 +146,9 @@
             </ImageView>
          </right>
          <top>
-            <AnchorPane prefHeight="104.0" prefWidth="1000.0">
+            <AnchorPane prefHeight="89.0" prefWidth="1000.0">
                <children>
-                  <ImageView fitHeight="85.0" fitWidth="102.0" layoutX="151.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="85.0" fitWidth="102.0" layoutX="151.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/logo.png" />
                      </image>

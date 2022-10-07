@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -35,7 +36,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="399.0" spacing="5.0" style="-fx-background-color: #2B52920f;">
                      <children>
-                        <Text fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Hospede">
+                        <Text fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Hospede" textAlignment="CENTER" wrappingWidth="357.2261962890625">
                            <font>
                               <Font name="Serif Regular" size="30.0" />
                            </font>
@@ -122,11 +123,22 @@
                               <Insets bottom="2.0" />
                            </VBox.margin>
                         </TextField>
-                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
                            <children>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#3937bc">
+                                 <padding>
+                                    <Insets bottom="7.0" top="7.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                               <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets />
                                  </HBox.margin>
                                  <padding>
                                     <Insets bottom="7.0" top="7.0" />
@@ -134,14 +146,9 @@
                                  <font>
                                     <Font size="16.0" />
                                  </font>
-                              </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #ffffff00;" text="Cancelar" textFill="#3937bc">
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                            <VBox.margin>

@@ -60,7 +60,7 @@
                               <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="botaoBuscar" layoutX="130.0" layoutY="17.0" mnemonicParsing="false" onAction="#botaoBuscarHandler" prefWidth="200.0" style="-fx-background-color: #2B5292;" text="Registros" textFill="WHITE">
+                        <Button fx:id="botaoBuscar" layoutX="130.0" layoutY="17.0" mnemonicParsing="false" onAction="#botaoBuscarHandler" prefWidth="200.0" style="-fx-background-color: #2B529222;" text="Registros" textFill="#2b5292">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -75,7 +75,7 @@
                   </VBox>
                   <VBox alignment="BOTTOM_RIGHT" prefHeight="202.0" prefWidth="451.0">
                      <children>
-                        <Button fx:id="botaoSair" alignment="CENTER" mnemonicParsing="false" onAction="#botaoSairHandler" prefHeight="35.0" prefWidth="81.0" style="-fx-background-color: #2B5292;" text="Sair" textFill="WHITE">
+                        <Button fx:id="botaoSair" alignment="CENTER" mnemonicParsing="false" onAction="#botaoSairHandler" prefHeight="35.0" prefWidth="81.0" style="-fx-background-color: #2B529222;" text="Sair" textFill="#2b5292">
                            <font>
                               <Font size="17.0" />
                            </font>

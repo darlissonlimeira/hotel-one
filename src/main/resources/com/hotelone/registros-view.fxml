@@ -79,7 +79,7 @@
                   </TabPane>
                   <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="960.0" spacing="20.0">
                      <children>
-                        <Button fx:id="botaoVoltar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoVoltarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;" text="Voltar" textFill="WHITE">
+                        <Button fx:id="botaoVoltar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoVoltarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Voltar" textFill="#2b5292">
                            <padding>
                               <Insets bottom="7.0" top="7.0" />
                            </padding>
@@ -87,8 +87,8 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Region prefHeight="48.0" prefWidth="517.0" />
-                        <Button fx:id="botaoCopiarID" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCopiarIDHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;" text="Copiar id" textFill="WHITE">
+                        <Region prefHeight="48.0" prefWidth="374.0" />
+                        <Button fx:id="botaoNovaReserva" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoNovaReservaHandler" prefHeight="33.0" prefWidth="180.0" style="-fx-background-color: #2B5292;" text="Reserva +" textFill="WHITE">
                            <padding>
                               <Insets bottom="7.0" top="7.0" />
                            </padding>
@@ -96,7 +96,15 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botaoEditar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoEditarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;" text="Editar" textFill="WHITE">
+                        <Button fx:id="botaoCopiarID" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCopiarIDHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Copiar id" textFill="#2b5292">
+                           <padding>
+                              <Insets bottom="7.0" top="7.0" />
+                           </padding>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="botaoEditar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoEditarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Editar" textFill="#2b5292">
                            <padding>
                               <Insets bottom="7.0" top="7.0" />
                            </padding>

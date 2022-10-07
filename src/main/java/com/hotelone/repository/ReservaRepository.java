@@ -37,4 +37,12 @@ public class ReservaRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public void update(Reserva reserva) {
+        try {
+            reservaDAO.update(reserva);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

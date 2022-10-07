@@ -1,6 +1,7 @@
 package com.hotelone.utils;
 
 import javafx.scene.control.Alert;
+import javafx.stage.Modality;
 
 public class Alerta{
 
@@ -13,6 +14,7 @@ public class Alerta{
     public void aviso() {
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         alerta.setTitle("Mensagem!");
+        alerta.initModality(Modality.APPLICATION_MODAL);
         alerta.setHeaderText(null);
         alerta.setContentText(mensagem);
         alerta.showAndWait();

@@ -20,82 +20,86 @@
          <center>
             <VBox alignment="CENTER" prefHeight="535.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="400.0" spacing="5.0">
+                  <VBox maxWidth="-Infinity" prefHeight="460.0" prefWidth="400.0">
                      <children>
-                        <Text fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Hospede" textAlignment="CENTER" wrappingWidth="359.1393127441406">
+                        <Text fx:id="modalTitulo" fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Reserva" textAlignment="CENTER" wrappingWidth="357.392578125">
                            <font>
-                              <Font name="Serif Regular" size="30.0" />
+                              <Font name="Serif Regular" size="31.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="20.0" right="20.0" />
+                              <Insets bottom="20.0" />
                            </VBox.margin>
                         </Text>
-                        <Label text="Nome">
+                        <Label text="Nome do Hospede">
                            <font>
                               <Font size="17.0" />
                            </font>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="inputNome">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <Label text="Sobrenome">
+                        <TextField fx:id="outputHospede">
                            <font>
-                              <Font size="17.0" />
+                              <Font size="15.0" />
                            </font>
                            <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputSobrenome">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <Label layoutX="10.0" layoutY="10.0" text="Data de nascimento">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker fx:id="inputDataNascimento" maxWidth="1.7976931348623157E308" onAction="#inputDataNascimentoHandler" promptText="Escolha a data de nascimento">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin>
-                        </DatePicker>
-                        <Label text="Telefone">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputTelefone">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
+                              <Insets bottom="12.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label text="Nacionalidade">
+                        <Label text="Data de checkin">
                            <font>
                               <Font size="17.0" />
                            </font>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="inputNacionalidade" prefHeight="24.0" prefWidth="367.0">
+                        <DatePicker fx:id="checkinInput" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
-                              <Insets bottom="2.0" />
+                              <Insets bottom="12.0" />
                            </VBox.margin>
-                        </ChoiceBox>
+                        </DatePicker>
+                        <Label layoutX="10.0" layoutY="10.0" text="Data de checkout">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </Label>
+                        <DatePicker fx:id="checkoutInput" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
+                           <VBox.margin>
+                              <Insets bottom="12.0" />
+                           </VBox.margin>
+                        </DatePicker>
+                        <Label text="Valor da reserva">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="valorOutput" editable="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="12.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Escolha a forma de pagamento">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="pagamentoChoiceBox" prefHeight="24.0" prefWidth="267.0" />
                         <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
                            <children>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#3937bc">
+                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292">
                                  <padding>
                                     <Insets bottom="7.0" top="7.0" />
                                  </padding>
@@ -122,13 +126,10 @@
                               </Button>
                            </children>
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="20.0" />
                            </VBox.margin>
                         </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>

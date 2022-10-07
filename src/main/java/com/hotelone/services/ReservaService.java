@@ -33,4 +33,8 @@ public class ReservaService {
     public List<Reserva> findAll() {
         return reservaRepository.findAll();
     }
+
+    public void update(Reserva reserva) {
+        reservaRepository.update(reserva);
+    }
 }

@@ -8,19 +8,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AppScene {
-
-    private final String fxmlName;
+public class SceneRender {
 
     private final Stage stage;
 
-    public AppScene (Node source, String fxmlName) {
-        this.fxmlName = fxmlName;
+    private final FXMLLoader loader;
+
+    public SceneRender (Node source, String fxmlName, Object controller) {
         this.stage = (Stage) source.getScene().getWindow();
+        this.loader = new FXMLLoader(IndexPage.class.getResource(fxmlName));
+        loader.setController(controller);
     }
 
     public void update() throws IOException {
-        FXMLLoader loader = new FXMLLoader(IndexPage.class.getResource(fxmlName));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
     }

@@ -47,6 +47,17 @@ public class ReservaDAO {
         }
     }
 
+    public void update(Reserva reserva) throws SQLException {
+        try (PreparedStatement sqlStatement = connection.prepareStatement("UPDATE reserva SET checkin=?, checkout=?, forma_pagamento=?, valor=? WHERE id=?;")) {
+            sqlStatement.setDate(1, Date.valueOf(reserva.getCheckin()));
+            sqlStatement.setDate(2, Date.valueOf(reserva.getCheckout()));
+            sqlStatement.setString(3, reserva.getFormaDePagamento().toString());
+            sqlStatement.setDouble(4, reserva.getValorTotal());
+            sqlStatement.setString(5, reserva.getId().toString());
+            sqlStatement.execute();
+        }
+    }
+
     private Reserva reservaMapper(ResultSet result) throws SQLException {
         HospedeDAO hospedeDAO = new HospedeDAO(connection);
         Hospede hospede = hospedeDAO.findById(result.getString("hospede_id"));

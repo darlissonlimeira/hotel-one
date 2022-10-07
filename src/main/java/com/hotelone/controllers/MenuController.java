@@ -1,6 +1,7 @@
 package com.hotelone.controllers;
 
 import com.hotelone.utils.AppScene;
+import com.hotelone.utils.SceneRender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

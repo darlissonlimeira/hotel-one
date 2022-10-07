@@ -16,7 +16,7 @@ public class IndexPage extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(IndexPage.class.getResource("tela-principal-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(IndexPage.class.getResource("registros-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Sistema Hotel ONE");
