@@ -3,8 +3,6 @@ package com.hotelone.controllers;
 import com.hotelone.IndexPage;
 import com.hotelone.entities.Hospede;
 import com.hotelone.entities.Reserva;
-import com.hotelone.repository.HospedeRepository;
-import com.hotelone.repository.ReservaRepository;
 import com.hotelone.services.HospedeService;
 import com.hotelone.services.ReservaService;
 import com.hotelone.utils.AppScene;
@@ -330,7 +328,7 @@ public class RegistrosController {
     private void editarReserva() {
         Reserva reservaSelecionada = tabelaReservas.getSelectionModel().getSelectedItem();
         try {
-            NovaReservaController controller = new NovaReservaController(reservaSelecionada, reservaService);
+            EditarReservaModalFormController controller = new EditarReservaModalFormController(reservaSelecionada, reservaService);
             new ModalRender("modal-reserva-form-view.fxml", controller).show();
             tabelaReservas.refresh();
         } catch (IOException exception) {
@@ -342,7 +340,7 @@ public class RegistrosController {
         Hospede hospedeSelecionado = tabelaHospedes.getSelectionModel().getSelectedItem();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(IndexPage.class.getResource("editar-registro-hospede-view.fxml"));
-            fxmlLoader.setController(new EditarHospedeController(hospedeSelecionado));
+            fxmlLoader.setController(new EditarHospedeModalFormController(hospedeSelecionado));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -386,7 +384,7 @@ public class RegistrosController {
 
     public void botaoNovaReservaHandler(ActionEvent event) throws IOException {
         Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
-        NovaReservaController controller = new NovaReservaController(hospede, reservaService);
+        NovaReservaModalFormController controller = new NovaReservaModalFormController(hospede, reservaService);
         new ModalRender("modal-reserva-form-view.fxml", controller).show();
     }
 }

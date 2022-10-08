@@ -62,7 +62,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="inputDataNascimento" maxWidth="1.7976931348623157E308" onAction="#inputDataNascimentoHandler" promptText="Escolha a data de nascimento">
+                        <DatePicker fx:id="inputDataNascimento" editable="false" maxWidth="1.7976931348623157E308" onAction="#inputDataNascimentoHandler" promptText="Escolha a data de nascimento">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>

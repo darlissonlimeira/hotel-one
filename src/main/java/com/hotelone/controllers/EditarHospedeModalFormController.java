@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
-public class EditarHospedeController {
+public class EditarHospedeModalFormController {
 
     private final Hospede hospedeData;
 
@@ -33,7 +33,7 @@ public class EditarHospedeController {
     @FXML
     private ChoiceBox<String> inputNacionalidade;
 
-    public EditarHospedeController(Hospede hospedeData) {
+    public EditarHospedeModalFormController(Hospede hospedeData) {
         this.hospedeData = hospedeData;
     }
 

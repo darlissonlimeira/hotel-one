@@ -51,7 +51,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkinInput" prefHeight="24.0" prefWidth="281.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkinInput" editable="false" prefHeight="24.0" prefWidth="281.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>
@@ -64,7 +64,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkoutInput" prefHeight="24.0" prefWidth="297.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkoutInput" editable="false" prefHeight="24.0" prefWidth="297.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>

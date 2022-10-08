@@ -22,7 +22,7 @@
                <children>
                   <VBox maxWidth="-Infinity" prefHeight="460.0" prefWidth="400.0">
                      <children>
-                        <Text fx:id="modalTitulo" fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Reserva" textAlignment="CENTER" wrappingWidth="357.392578125">
+                        <Text fx:id="modalTitulo" fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Formulario Reserva" textAlignment="CENTER" wrappingWidth="357.392578125">
                            <font>
                               <Font name="Serif Regular" size="31.0" />
                            </font>
@@ -38,7 +38,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="outputHospede">
+                        <TextField fx:id="outputHospede" editable="false">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -54,7 +54,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkinInput" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkinInput" editable="false" onAction="#checkinInputHandler" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>
@@ -67,7 +67,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkoutInput" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkoutInput" editable="false" onAction="#checkoutInputHandler" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>
@@ -96,7 +96,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="pagamentoChoiceBox" prefHeight="24.0" prefWidth="267.0" />
+                        <ChoiceBox fx:id="pagamentoChoiceBox" onAction="#pagamentoChoiceBoxHandler" prefHeight="24.0" prefWidth="267.0" />
                         <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
                            <children>
                               <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292">
@@ -110,7 +110,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
+                              <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
