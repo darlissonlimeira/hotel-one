@@ -10,7 +10,7 @@ O Hotel Alura, conhecido por suas espetaculares instalações e pacotes promocio
 - Banco de dados para armazenar todos os dados solicitados anteriormente.
 
 ### Video de apresentação
-[![Watch the video](video-tumb.png)](video-hotelone.webm)
+[![Watch the video](video-tumb.png)](video-hotelone.mp4)
 
 ### Tecnologias utilizadas:
 
