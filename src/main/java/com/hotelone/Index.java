@@ -46,7 +46,6 @@ public class Index extends Application {
         String queryTabelaHospede = "CREATE TABLE IF NOT EXISTS hospede (id VARCHAR(255) PRIMARY KEY NOT NULL, nome VARCHAR(50) NOT NULL, sobrenome VARCHAR(100) NOT NULL, data_nascimento DATE NOT NULL, telefone VARCHAR(20) NOT NULL, nacionalidade VARCHAR(100) NOT NULL);";
         String queryTabelaReserva = "CREATE TABLE IF NOT EXISTS reserva (id VARCHAR(255) PRIMARY KEY NOT NULL, checkin DATE NOT NULL, checkout DATE NOT NULL, forma_pagamento VARCHAR(100), valor DECIMAL NOT NULL, CHECK (valor>0), hospede_id VARCHAR(255), FOREIGN KEY (hospede_id) REFERENCES hospede(id) ON DELETE CASCADE ON UPDATE CASCADE);";
         String queryTabelaAdministrador = "CREATE TABLE IF NOT EXISTS administrador (username VARCHAR(255) PRIMARY KEY NOT NULL, password VARCHAR(255) NOT NULL);";
-
         try (Statement st = connection.createStatement()) {
             st.execute(queryTabelaAdministrador);
             st.execute(queryTabelaHospede);

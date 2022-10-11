@@ -16,101 +16,98 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.LoginController">
-   <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0" style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por Darlisson Limeira">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-         </bottom>
-         <center>
-            <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Region prefHeight="76.0" prefWidth="397.0" />
-                  <ImageView fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/logo.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ImageView>
-                  <Region prefHeight="25.0" prefWidth="397.0" />
-                  <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="109.0" prefWidth="268.0">
-                     <children>
-                        <Label text="Usuario">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputUsername" prefHeight="24.0" prefWidth="318.0" text="admin" />
-                        <Label layoutX="10.0" layoutY="10.0" text="Senha">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <PasswordField fx:id="inputPassword" text="admin" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0">
-                           <children>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLoginBtnClick" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;" text="Entrar" textFill="WHITE" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button layoutX="10.0" layoutY="17.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCancelBtnClick" prefHeight="24.0" prefWidth="110.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292" HBox.hgrow="ALWAYS">
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <Region prefHeight="166.0" prefWidth="397.0" />
-               </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </VBox>
-         </center>
-         <left>
-            <ImageView fitHeight="563.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../img/login-form.png" />
-               </image>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.LoginController">
+   <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="700.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+               AnchorPane.topAnchor="0.0">
+      <bottom>
+         <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0"
+               style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por Darlisson Limeira">
+               <font>
+                  <Font size="12.0"/>
+               </font>
+            </Text>
+         </HBox>
+      </bottom>
+      <center>
+         <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+            <padding>
+               <Insets left="20.0" right="20.0"/>
+            </padding>
+            <Region prefHeight="76.0" prefWidth="397.0"/>
+            <ImageView fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+               <Image url="@../../img/logo.png"/>
             </ImageView>
-         </left>
-      </BorderPane>
-   </children>
+            <Region prefHeight="25.0" prefWidth="397.0"/>
+            <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="109.0" prefWidth="268.0">
+               <Label text="Usuario">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0"/>
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="inputUsername" prefHeight="24.0" prefWidth="318.0" text="admin"/>
+               <Label layoutX="10.0" layoutY="10.0" text="Senha">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" top="10.0"/>
+                  </VBox.margin>
+               </Label>
+               <PasswordField fx:id="inputPassword" text="admin"/>
+               <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0">
+                  <VBox.margin>
+                     <Insets top="20.0"/>
+                  </VBox.margin>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLoginBtnClick"
+                          prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;"
+                          text="Entrar" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="10.0"/>
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="7.0" top="7.0"/>
+                     </padding>
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="17.0" maxWidth="1.7976931348623157E308"
+                          mnemonicParsing="false" onAction="#onCancelBtnClick" prefHeight="24.0"
+                          prefWidth="110.0" style="-fx-background-color: #2B529222;" text="Cancelar"
+                          textFill="#2b5292" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="7.0" top="7.0"/>
+                     </padding>
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
+                  </Button>
+               </HBox>
+            </VBox>
+            <Region prefHeight="166.0" prefWidth="397.0"/>
+         </VBox>
+      </center>
+      <left>
+         <ImageView fitHeight="563.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true"
+                    BorderPane.alignment="CENTER">
+            <Image url="@../../img/login-form.png"/>
+         </ImageView>
+      </left>
+   </BorderPane>
 </AnchorPane>

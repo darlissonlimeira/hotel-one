@@ -14,128 +14,135 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: #2B52920f;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #2B52920f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: #2B52920f;"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0"
+                prefWidth="1000.0" style="-fx-background-color: #2B52920f;" AnchorPane.bottomAnchor="0.0"
+                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <center>
             <VBox alignment="CENTER" prefHeight="535.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="400.0" spacing="5.0">
-                     <children>
-                        <Text fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Hospede" textAlignment="CENTER" wrappingWidth="359.1393127441406">
-                           <font>
-                              <Font name="Serif Regular" size="30.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Label text="Nome">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputNome" onKeyTyped="#inputNomeHandler">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <Label text="Sobrenome">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputSobrenome" onKeyTyped="#inputSobrenomeHandler">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin></TextField>
-                        <Label layoutX="10.0" layoutY="10.0" text="Data de nascimento">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker fx:id="inputDataNascimento" editable="false" maxWidth="1.7976931348623157E308" onAction="#inputDataNascimentoHandler" promptText="Escolha a data de nascimento">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin>
-                        </DatePicker>
-                        <Label text="Telefone">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="inputTelefone" onKeyTyped="#inputTelefoneHandler">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label text="Nacionalidade">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <ChoiceBox fx:id="inputNacionalidade" onAction="#inputNacionalidadeHandler" prefHeight="24.0" prefWidth="367.0">
-                           <VBox.margin>
-                              <Insets bottom="2.0" />
-                           </VBox.margin>
-                        </ChoiceBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
-                           <children>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#3937bc">
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                  </VBox>
-               </children>
+                <VBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="460.0"
+                      prefWidth="400.0" spacing="5.0">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+                    <Text fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Hospede"
+                          textAlignment="CENTER" wrappingWidth="359.1393127441406">
+                        <font>
+                            <Font name="Serif Regular" size="30.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="20.0" right="20.0"/>
+                        </VBox.margin>
+                    </Text>
+                    <Label text="Nome">
+                        <font>
+                            <Font size="17.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Label>
+                    <TextField fx:id="inputNome" onKeyTyped="#inputNomeHandler">
+                        <VBox.margin>
+                            <Insets bottom="2.0"/>
+                        </VBox.margin>
+                    </TextField>
+                    <Label text="Sobrenome">
+                        <font>
+                            <Font size="17.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Label>
+                    <TextField fx:id="inputSobrenome" onKeyTyped="#inputSobrenomeHandler">
+                        <VBox.margin>
+                            <Insets bottom="2.0"/>
+                        </VBox.margin>
+                    </TextField>
+                    <Label layoutX="10.0" layoutY="10.0" text="Data de nascimento">
+                        <font>
+                            <Font size="17.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Label>
+                    <DatePicker fx:id="inputDataNascimento" editable="false" maxWidth="1.7976931348623157E308"
+                                onAction="#inputDataNascimentoHandler" promptText="Escolha a data de nascimento">
+                        <VBox.margin>
+                            <Insets bottom="2.0"/>
+                        </VBox.margin>
+                    </DatePicker>
+                    <Label text="Telefone">
+                        <font>
+                            <Font size="17.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Label>
+                    <TextField fx:id="inputTelefone" onKeyTyped="#inputTelefoneHandler">
+                        <VBox.margin>
+                            <Insets bottom="2.0"/>
+                        </VBox.margin>
+                    </TextField>
+                    <Label text="Nacionalidade">
+                        <font>
+                            <Font size="17.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Label>
+                    <ChoiceBox fx:id="inputNacionalidade" onAction="#inputNacionalidadeHandler" prefHeight="24.0"
+                               prefWidth="367.0">
+                        <VBox.margin>
+                            <Insets bottom="2.0"/>
+                        </VBox.margin>
+                    </ChoiceBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
+                        <VBox.margin>
+                            <Insets top="10.0"/>
+                        </VBox.margin>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0"
+                                style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#3937bc">
+                            <padding>
+                                <Insets bottom="7.0" top="7.0"/>
+                            </padding>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                        </Button>
+                        <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0"
+                                style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE"
+                                HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="7.0" top="7.0"/>
+                            </padding>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                        </Button>
+                    </HBox>
+                </VBox>
             </VBox>
-         </center>
-      </BorderPane>
-   </children>
+        </center>
+    </BorderPane>
 </AnchorPane>

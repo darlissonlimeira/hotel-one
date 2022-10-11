@@ -13,68 +13,64 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.IndexController">
-   <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0" style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por Darlisson Limeira">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-         </bottom>
-         <center>
-            <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" spacing="20.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Region minWidth="-Infinity" prefHeight="127.0" prefWidth="397.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo!">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="137.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/logo.png" />
-                     </image>
-                  </ImageView>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Text>
-                  <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="91.0" prefWidth="104.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="81.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/login%20-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-               </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </VBox>
-         </center>
-         <left>
-            <ImageView fitHeight="563.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../img/welcome.png" />
-               </image>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.IndexController">
+   <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="700.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+               AnchorPane.topAnchor="0.0">
+      <bottom>
+         <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0"
+               style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por Darlisson Limeira">
+               <font>
+                  <Font size="12.0"/>
+               </font>
+            </Text>
+         </HBox>
+      </bottom>
+      <center>
+         <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <padding>
+               <Insets left="20.0" right="20.0"/>
+            </padding>
+            <Region minWidth="-Infinity" prefHeight="127.0" prefWidth="397.0"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo!">
+               <font>
+                  <Font size="35.0"/>
+               </font>
+            </Text>
+            <ImageView fitHeight="137.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../img/logo.png"/>
             </ImageView>
-         </left>
-      </BorderPane>
-   </children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+               <font>
+                  <Font size="26.0"/>
+               </font>
+            </Text>
+            <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="91.0"
+                    prefWidth="104.0">
+               <font>
+                  <Font size="24.0"/>
+               </font>
+               <graphic>
+                  <ImageView fitHeight="81.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../img/login-icon.png"/>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+            <Region prefHeight="200.0" prefWidth="200.0"/>
+         </VBox>
+      </center>
+      <left>
+         <ImageView fitHeight="563.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true"
+                    BorderPane.alignment="CENTER">
+            <Image url="@../../img/welcome.png"/>
+         </ImageView>
+      </left>
+   </BorderPane>
 </AnchorPane>

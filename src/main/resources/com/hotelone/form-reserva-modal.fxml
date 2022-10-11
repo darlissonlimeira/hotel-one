@@ -14,129 +14,135 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: #2B52920f;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #2B52920f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <VBox alignment="CENTER" prefHeight="535.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox maxWidth="-Infinity" prefHeight="460.0" prefWidth="400.0">
-                     <children>
-                        <Text fx:id="modalTitulo" fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0" text="Formulario Reserva" textAlignment="CENTER" wrappingWidth="357.392578125">
-                           <font>
-                              <Font name="Serif Regular" size="31.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Label text="Nome do Hospede">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="outputHospede" editable="false">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label text="Data de checkin">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker fx:id="checkinInput" editable="false" onAction="#checkinInputHandler" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </DatePicker>
-                        <Label layoutX="10.0" layoutY="10.0" text="Data de checkout">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <DatePicker fx:id="checkoutInput" editable="false" onAction="#checkoutInputHandler" prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </DatePicker>
-                        <Label text="Valor da reserva">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="valorOutput" editable="false">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label text="Escolha a forma de pagamento">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <ChoiceBox fx:id="pagamentoChoiceBox" onAction="#pagamentoChoiceBoxHandler" prefHeight="24.0" prefWidth="267.0" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
-                           <children>
-                              <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292">
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="7.0" top="7.0" />
-                                 </padding>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: #2B52920f;"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0"
+               prefWidth="1000.0" style="-fx-background-color: #2B52920f;" AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+         <VBox alignment="CENTER" prefHeight="535.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <VBox maxWidth="-Infinity" prefHeight="460.0" prefWidth="400.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+               </padding>
+               <Text fx:id="modalTitulo" fill="#2b5292" strokeType="OUTSIDE" strokeWidth="0.0"
+                     text="Formulario Reserva" textAlignment="CENTER" wrappingWidth="357.392578125">
+                  <font>
+                     <Font name="Serif Regular" size="31.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="20.0"/>
+                  </VBox.margin>
+               </Text>
+               <Label text="Nome do Hospede">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="7.0"/>
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="outputHospede" editable="false">
+                  <font>
+                     <Font size="15.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="12.0"/>
+                  </VBox.margin>
+               </TextField>
+               <Label text="Data de checkin">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="7.0"/>
+                  </VBox.margin>
+               </Label>
+               <DatePicker fx:id="checkinInput" editable="false" onAction="#checkinInputHandler" prefHeight="24.0"
+                           prefWidth="270.0" promptText="Escolha a data de checkin">
+                  <VBox.margin>
+                     <Insets bottom="12.0"/>
+                  </VBox.margin>
+               </DatePicker>
+               <Label layoutX="10.0" layoutY="10.0" text="Data de checkout">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="7.0"/>
+                  </VBox.margin>
+               </Label>
+               <DatePicker fx:id="checkoutInput" editable="false" onAction="#checkoutInputHandler"
+                           prefHeight="24.0" prefWidth="270.0" promptText="Escolha a data de checkin">
+                  <VBox.margin>
+                     <Insets bottom="12.0"/>
+                  </VBox.margin>
+               </DatePicker>
+               <Label text="Valor da reserva">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="7.0"/>
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="valorOutput" editable="false">
+                  <font>
+                     <Font size="15.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="12.0"/>
+                  </VBox.margin>
+               </TextField>
+               <Label text="Escolha a forma de pagamento">
+                  <font>
+                     <Font size="17.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="7.0"/>
+                  </VBox.margin>
+               </Label>
+               <ChoiceBox fx:id="pagamentoChoiceBox" onAction="#pagamentoChoiceBoxHandler" prefHeight="24.0"
+                          prefWidth="267.0"/>
+               <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
+                  <VBox.margin>
+                     <Insets top="20.0"/>
+                  </VBox.margin>
+                  <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308"
+                          mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0"
+                          prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar"
+                          textFill="#2b5292">
                      <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="7.0" top="7.0"/>
                      </padding>
-                  </VBox>
-               </children>
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
+                  </Button>
+                  <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                          onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0"
+                          style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE"
+                          HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets/>
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="7.0" top="7.0"/>
+                     </padding>
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
+                  </Button>
+               </HBox>
             </VBox>
-         </center>
-      </BorderPane>
-   </children>
+         </VBox>
+      </center>
+   </BorderPane>
 </AnchorPane>

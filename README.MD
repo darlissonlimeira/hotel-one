@@ -8,3 +8,14 @@ O Hotel Alura, conhecido por suas espetaculares instalações e pacotes promocio
 - Registre, edite e exclua os dados dos hóspedes;
 - Calcule o valor da reserva com base no número de dias da reserva e uma taxa diária com o valor atribuído por você em na moeda Real. Por exemplo, se tivermos uma reserva de 3 dias e o valor de nossa diária é R$ 120,00 devemos multiplicar esses 3 dias pelo valor da diária que seria R$ 360, tudo isso deve ser feito automaticamente e mostrado ao usuário antes de salvar a reserva;
 - Banco de dados para armazenar todos os dados solicitados anteriormente.
+
+### Tecnologias utilizadas:
+
+- Java 17;
+- Scene Builder;
+- Maven 4;
+- JDBC 21.7.0;
+- Driver Mysql 8.0.30;
+- JavaFx 19;
+
+
