@@ -19,7 +19,7 @@ public class ReservaService {
     }
 
     public Reserva create(Reserva reserva) {
-        long dias = Hospedagem.qtdDias(reserva.getCheckin(), reserva.getCheckout());
+        long dias = Hospedagem.qtdDias(reserva.getCheckin(), reserva.getCheckout().plusDays(1));
         double VALOR_DA_DIARIA = 120.00;
         double valorDataReserva = dias * VALOR_DA_DIARIA;
         reserva.setValorTotal(valorDataReserva);
