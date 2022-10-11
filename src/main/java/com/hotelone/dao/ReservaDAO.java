@@ -17,7 +17,7 @@ public class ReservaDAO {
     }
 
     public List<Reserva> findAll() throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM reserva;")) {
+        try (PreparedStatement statement = connection.prepareStatement("SELECT reserva.*, h.nome, h.sobrenome, h.data_nascimento, h.telefone, h.nacionalidade FROM reserva INNER JOIN hospede AS h ON reserva.hospede_id=h.id;")) {
             List<Reserva> reservaList = new ArrayList<>();
             ResultSet result = statement.executeQuery();
             while (result.next()) {
@@ -59,8 +59,14 @@ public class ReservaDAO {
     }
 
     private Reserva reservaMapper(ResultSet result) throws SQLException {
-        HospedeDAO hospedeDAO = new HospedeDAO(connection);
-        Hospede hospede = hospedeDAO.findById(result.getString("hospede_id"));
+        Hospede hospede = new Hospede();
+        hospede.setId(UUID.fromString(result.getString("hospede_id")));
+        hospede.setNome(result.getString("nome"));
+        hospede.setSobrenome(result.getString("sobrenome"));
+        hospede.setDataNascimento(result.getDate("data_nascimento").toLocalDate());
+        hospede.setTelefone(result.getString("telefone"));
+        hospede.setNacionalidade(result.getString("nacionalidade"));
+
         Reserva reserva = new Reserva();
         reserva.setId(UUID.fromString(result.getString("id")));
         reserva.setCheckin(result.getDate("checkin").toLocalDate());
