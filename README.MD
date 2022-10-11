@@ -10,7 +10,7 @@ O Hotel Alura, conhecido por suas espetaculares instalações e pacotes promocio
 - Banco de dados para armazenar todos os dados solicitados anteriormente.
 
 ### Video de apresentação
-video-hotelone.mp4
+https://user-images.githubusercontent.com/49912598/195216500-907928a1-d7ed-46fb-a76e-cff90b1d3196.mp4
 
 ### Tecnologias utilizadas:
 
@@ -20,5 +20,3 @@ video-hotelone.mp4
 - JDBC 21.7.0;
 - Driver Mysql 8.0.30;
 - JavaFx 19;
-
-
