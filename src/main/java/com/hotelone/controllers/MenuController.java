@@ -1,6 +1,5 @@
 package com.hotelone.controllers;
 
-import com.hotelone.utils.AppScene;
 import com.hotelone.utils.SceneRender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,18 +22,18 @@ public class MenuController {
     @FXML
     public void botaoNovaReservaHandler(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
-        new AppScene(source, "registro-reserva-view.fxml").update();
+        new SceneRender(source, "registro-reserva-view.fxml").update();
     }
 
     @FXML
     public void botaoBuscarHandler(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
-        new AppScene(source, "registros-view.fxml").update();
+        new SceneRender(source, "registros-view.fxml").update();
     }
 
     @FXML
     public void botaoSairHandler(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
-        new AppScene(source, "login-form-view.fxml").update();
+        new SceneRender(source, "login-form-view.fxml").update();
     }
 }

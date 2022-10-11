@@ -19,180 +19,214 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.RegistrosController">
-   <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0" style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvido por Darlisson Limeira">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-         </bottom>
-         <center>
-            <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-               <children>
-                  <TabPane fx:id="tabPainel" prefHeight="352.0" prefWidth="960.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab closable="false" onSelectionChanged="#tabHospedesHandler" text="Hospedes">
-                           <content>
-                              <TableView fx:id="tabelaHospedes" prefHeight="321.0" prefWidth="960.0">
-                                <columns>
-                                  <TableColumn fx:id="hospedeId" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Id" />
-                                  <TableColumn fx:id="hospedeNome" prefWidth="254.99998474121094" text="Nome" />
-                                    <TableColumn fx:id="hospedeSobrenome" prefWidth="242.6666259765625" text="Sobrenome" />
-                                    <TableColumn fx:id="hospedeNascimento" prefWidth="242.6666259765625" text="Nascimento" />
-                                    <TableColumn fx:id="hospedeTelefone" prefWidth="259.3333740234375" text="Telefone" />
-                                    <TableColumn fx:id="hospedeNacionalidade" minWidth="0.0" prefWidth="189.66668701171875" text="Nacionalidade" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </content>
-                      </Tab>
-                      <Tab closable="false" onSelectionChanged="#tabReservasHandler" text="Reservas">
-                           <content>
-                              <TableView fx:id="tabelaReservas" prefHeight="200.0" prefWidth="200.0">
-                                <columns>
-                                  <TableColumn fx:id="reservaId" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Id" />
-                                    <TableColumn fx:id="reservaHospede" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Hospede" />
-                                  <TableColumn fx:id="reservaCheckin" prefWidth="212.33331298828125" text="Data de Check In" />
-                                    <TableColumn fx:id="reservaCheckout" prefWidth="195.66668701171875" text="Data de Check Out" />
-                                    <TableColumn fx:id="reservaPagamento" prefWidth="254.3333740234375" text="Forma de pagamento" />
-                                    <TableColumn fx:id="reservaValor" prefWidth="134.6666259765625" text="Valor" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="960.0" spacing="20.0">
-                     <children>
-                        <Button fx:id="botaoVoltar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoVoltarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Voltar" textFill="#2b5292">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Region prefHeight="48.0" prefWidth="374.0" />
-                        <Button fx:id="botaoNovaReserva" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoNovaReservaHandler" prefHeight="33.0" prefWidth="180.0" style="-fx-background-color: #2B5292;" text="Reserva +" textFill="WHITE">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="botaoCopiarID" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCopiarIDHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Copiar id" textFill="#2b5292">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="botaoEditar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoEditarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B529222;" text="Editar" textFill="#2b5292">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="botaoRemover" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeItemSelecionadoHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #ff0037;" text="Remover" textFill="WHITE">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </VBox>
-         </center>
-         <top>
-            <VBox alignment="CENTER" prefHeight="141.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="1000.0">
-                     <children>
-                        <ImageView fitHeight="67.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/logo.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Region prefHeight="77.0" prefWidth="340.0">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </Region>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registros" textAlignment="CENTER">
-                           <font>
-                              <Font name="Liberation Serif" size="39.0" />
-                           </font>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotelone.controllers.RegistrosController">
+    <children>
+        <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0"
+                    prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="700.0"
+                      style="-fx-background-color: #2B5292;" styleClass="header-bg" BorderPane.alignment="CENTER">
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Desenvolvido por Darlisson Limeira">
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
                         </Text>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="5.0" top="20.0" />
-                     </padding>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #f0f0f0;">
-                     <children>
-                        <DatePicker fx:id="checkinBusca" prefHeight="33.0" prefWidth="180.0" promptText="Data de Check In">
-                           <padding>
-                              <Insets top="2.0" />
-                           </padding>
-                        </DatePicker>
-                        <DatePicker fx:id="checkoutBusca" prefHeight="33.0" promptText="Data de Check Out" />
-                        <ChoiceBox fx:id="opcoesDeBusca" prefHeight="32.0" prefWidth="140.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ChoiceBox>
-                        <TextField fx:id="inputBusca" prefHeight="33.0" prefWidth="345.0" promptText="Pesquisar...">
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </TextField>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoBuscarHandler" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: #2B5292;" text="Buscar" textFill="WHITE">
-                           <padding>
-                              <Insets bottom="7.0" top="7.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </VBox>
-         </top>
-      </BorderPane>
-   </children>
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+                <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                    <children>
+                        <TabPane fx:id="tabPainel" prefHeight="352.0" prefWidth="960.0" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab closable="false" onSelectionChanged="#tabHospedesHandler" text="Hospedes">
+                                    <content>
+                                        <TableView fx:id="tabelaHospedes" prefHeight="321.0" prefWidth="960.0">
+                                            <columns>
+                                                <TableColumn fx:id="hospedeId" maxWidth="75.0" minWidth="75.0"
+                                                             prefWidth="75.0" resizable="false" text="Id"/>
+                                                <TableColumn fx:id="hospedeNome" prefWidth="254.99998474121094"
+                                                             text="Nome"/>
+                                                <TableColumn fx:id="hospedeSobrenome" prefWidth="242.6666259765625"
+                                                             text="Sobrenome"/>
+                                                <TableColumn fx:id="hospedeNascimento" prefWidth="242.6666259765625"
+                                                             text="Nascimento"/>
+                                                <TableColumn fx:id="hospedeTelefone" prefWidth="259.3333740234375"
+                                                             text="Telefone"/>
+                                                <TableColumn fx:id="hospedeNacionalidade" minWidth="0.0"
+                                                             prefWidth="189.66668701171875" text="Nacionalidade"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </content>
+                                </Tab>
+                                <Tab closable="false" onSelectionChanged="#tabReservasHandler" text="Reservas">
+                                    <content>
+                                        <TableView fx:id="tabelaReservas" prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                                <TableColumn fx:id="reservaId" maxWidth="75.0" minWidth="75.0"
+                                                             prefWidth="75.0" resizable="false" text="Id"/>
+                                                <TableColumn fx:id="reservaHospede" maxWidth="75.0" minWidth="75.0"
+                                                             prefWidth="75.0" resizable="false" text="Hospede"/>
+                                                <TableColumn fx:id="reservaCheckin" prefWidth="212.33331298828125"
+                                                             text="Data de Check In"/>
+                                                <TableColumn fx:id="reservaCheckout" prefWidth="195.66668701171875"
+                                                             text="Data de Check Out"/>
+                                                <TableColumn fx:id="reservaPagamento" prefWidth="254.3333740234375"
+                                                             text="Forma de pagamento"/>
+                                                <TableColumn fx:id="reservaValor" prefWidth="134.6666259765625"
+                                                             text="Valor"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="960.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="botaoVoltar" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        onAction="#botaoVoltarHandler" prefHeight="0.0" prefWidth="129.0"
+                                        style="-fx-background-color: #2B529222;" text="Voltar" textFill="#2b5292">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Button>
+                                <Region prefHeight="48.0" prefWidth="374.0"/>
+                                <Button fx:id="botaoNovaReserva" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onAction="#botaoNovaReservaHandler" prefHeight="33.0"
+                                        prefWidth="180.0" style="-fx-background-color: #2B5292;" text="Reserva +"
+                                        textFill="WHITE">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="botaoCopiarID" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        onAction="#botaoCopiarIDHandler" prefHeight="0.0" prefWidth="129.0"
+                                        style="-fx-background-color: #2B529222;" text="Copiar id" textFill="#2b5292">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="botaoEditar" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        onAction="#botaoEditarHandler" prefHeight="0.0" prefWidth="129.0"
+                                        style="-fx-background-color: #2B529222;" text="Editar" textFill="#2b5292">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="botaoRemover" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        onAction="#botaoRemoverHandler" prefHeight="0.0" prefWidth="129.0"
+                                        style="-fx-background-color: #ff0037;" text="Remover" textFill="WHITE">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" top="5.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+            <top>
+                <VBox alignment="CENTER" prefHeight="141.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="1000.0">
+                            <children>
+                                <ImageView fitHeight="67.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/logo.png"/>
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Region prefHeight="77.0" prefWidth="340.0">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </Region>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registros" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Liberation Serif" size="39.0"/>
+                                    </font>
+                                </Text>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="20.0" right="5.0" top="20.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0"
+                              style="-fx-background-color: #f0f0f0;">
+                            <children>
+                                <DatePicker fx:id="checkinBusca" prefHeight="33.0" prefWidth="180.0"
+                                            promptText="Data de Check In">
+                                    <padding>
+                                        <Insets top="2.0"/>
+                                    </padding>
+                                </DatePicker>
+                                <DatePicker fx:id="checkoutBusca" prefHeight="33.0" promptText="Data de Check Out"/>
+                                <ChoiceBox fx:id="opcoesDeBusca" prefHeight="32.0" prefWidth="140.0">
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </ChoiceBox>
+                                <TextField fx:id="inputBusca" prefHeight="33.0" prefWidth="345.0"
+                                           promptText="Pesquisar...">
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                                        onAction="#botaoBuscarHandler" prefHeight="0.0" prefWidth="129.0"
+                                        style="-fx-background-color: #2B5292;" text="Buscar" textFill="WHITE">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="15.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="20.0" right="20.0" top="5.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </top>
+        </BorderPane>
+    </children>
 </AnchorPane>

@@ -51,7 +51,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkinInput" editable="false" prefHeight="24.0" prefWidth="281.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkinInput" editable="false" onAction="#checkinInputHandler" prefHeight="24.0" prefWidth="281.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>
@@ -64,7 +64,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="checkoutInput" editable="false" prefHeight="24.0" prefWidth="297.0" promptText="Escolha a data de checkin">
+                        <DatePicker fx:id="checkoutInput" editable="false" onAction="#checkoutInputHandler" prefHeight="24.0" prefWidth="297.0" promptText="Escolha a data de checkin">
                            <VBox.margin>
                               <Insets bottom="12.0" />
                            </VBox.margin>
@@ -93,7 +93,7 @@
                               <Insets bottom="7.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="pagamentoChoiceBox" prefHeight="24.0" prefWidth="267.0" />
+                        <ChoiceBox onAction="#pagamentoChoiceBoxHandler" fx:id="pagamentoChoiceBox" prefHeight="24.0" prefWidth="267.0" />
                         <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="268.0" spacing="20.0">
                            <children>
                               <Button fx:id="botaoCancelar" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoCancelarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B529222;" text="Cancelar" textFill="#2b5292">

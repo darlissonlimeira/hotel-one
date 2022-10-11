@@ -3,6 +3,7 @@ package com.hotelone.controllers;
 import com.hotelone.config.DatabaseConfig;
 import com.hotelone.utils.Alerta;
 import com.hotelone.utils.AppScene;
+import com.hotelone.utils.SceneRender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -43,9 +44,9 @@ public class LoginController {
             }
 
             Node source = (Node) event.getSource();
-            new AppScene(source, "menu-view.fxml").update();
+            new SceneRender(source, "menu-view.fxml").update();
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            System.err.println(exception.getMessage());
         }
     }
 
@@ -53,7 +54,7 @@ public class LoginController {
     public void onCancelBtnClick(ActionEvent event) {
         try {
             Node source = (Node) event.getSource();
-            new AppScene(source, "tela-principal-view.fxml").update();
+            new SceneRender(source, "index-view.fxml").update();
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, "Algo deu errado");
         }

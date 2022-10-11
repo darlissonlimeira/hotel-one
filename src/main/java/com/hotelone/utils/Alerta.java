@@ -1,38 +1,47 @@
 package com.hotelone.utils;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 
 public class Alerta{
 
-    private String mensagem;
+    private Alert alerta = new Alert(Alert.AlertType.NONE);
 
     public Alerta(String mensagem){
-        this.mensagem = mensagem;
-    }
-
-    public void aviso() {
-        Alert alerta = new Alert(Alert.AlertType.WARNING);
-        alerta.setTitle("Mensagem!");
+        alerta.setTitle("Alerta!");
+        alerta.setContentText(mensagem);
         alerta.initModality(Modality.APPLICATION_MODAL);
         alerta.setHeaderText(null);
-        alerta.setContentText(mensagem);
+    }
+
+    public Alerta(){}
+
+    public void aviso() {
+        alerta.setAlertType(Alert.AlertType.WARNING);
         alerta.showAndWait();
     }
 
     public void erro() {
-        Alert alerta = new Alert(Alert.AlertType.ERROR);
-        alerta.setTitle("Mensagem!");
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensagem);
+        alerta.setAlertType(Alert.AlertType.ERROR);
         alerta.showAndWait();
     }
 
     public void confirmacao() {
-        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-        alerta.setTitle("Mensagem!");
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensagem);
+        alerta.setAlertType(Alert.AlertType.CONFIRMATION);
         alerta.showAndWait();
+    }
+
+    public ButtonBar.ButtonData avisoPergunta(String pergunta) {
+        alerta = new Alert(Alert.AlertType.WARNING, pergunta,
+                new ButtonType("Remover", ButtonBar.ButtonData.OK_DONE),
+                new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE));
+        alerta.setTitle("Alerta!");
+        alerta.initModality(Modality.APPLICATION_MODAL);
+        alerta.setHeaderText(null);
+        var reposta = alerta.showAndWait();
+        if(reposta.isEmpty()) return null;
+        return reposta.get().getButtonData();
     }
 }

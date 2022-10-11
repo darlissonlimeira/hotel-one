@@ -1,6 +1,6 @@
 package com.hotelone.utils;
 
-import com.hotelone.IndexPage;
+import com.hotelone.Index;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -13,7 +13,7 @@ public class ModalRender {
     private final FXMLLoader fxmlLoader;
 
     public ModalRender (String fxmlName, Object controller) {
-        this.fxmlLoader = new FXMLLoader(IndexPage.class.getResource(fxmlName));
+        this.fxmlLoader = new FXMLLoader(Index.class.getResource(fxmlName));
         this.fxmlLoader.setController(controller);
     }
 

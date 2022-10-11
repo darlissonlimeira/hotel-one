@@ -12,11 +12,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class IndexPage extends Application {
+public class Index extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(IndexPage.class.getResource("registros-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Index.class.getResource("index-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Sistema Hotel ONE");

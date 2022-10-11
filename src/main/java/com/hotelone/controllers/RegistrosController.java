@@ -1,14 +1,10 @@
 package com.hotelone.controllers;
 
-import com.hotelone.IndexPage;
 import com.hotelone.entities.Hospede;
 import com.hotelone.entities.Reserva;
 import com.hotelone.services.HospedeService;
 import com.hotelone.services.ReservaService;
-import com.hotelone.utils.AppScene;
-import com.hotelone.utils.CustomCurrency;
-import com.hotelone.utils.CustomDate;
-import com.hotelone.utils.ModalRender;
+import com.hotelone.utils.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,24 +12,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public class RegistrosController {
 
@@ -54,6 +44,12 @@ public class RegistrosController {
 
     @FXML
     private TextField inputBusca;
+
+    @FXML
+    private DatePicker checkinBusca = new DatePicker();
+
+    @FXML
+    private DatePicker checkoutBusca = new DatePicker();
 
     @FXML
     private ChoiceBox<String> opcoesDeBusca = new ChoiceBox<>();
@@ -103,12 +99,6 @@ public class RegistrosController {
     @FXML
     private TabPane tabPainel;
 
-    @FXML
-    private DatePicker checkinBusca = new DatePicker();
-
-    @FXML
-    private DatePicker checkoutBusca = new DatePicker();
-
     private final HospedeService hospedeService = new HospedeService();
 
     private final ReservaService reservaService = new ReservaService();
@@ -122,15 +112,14 @@ public class RegistrosController {
         botaoNovaReserva.setDisable(true);
         botaoEditar.setDisable(true);
         botaoRemover.setDisable(true);
-    }
 
+        checkinBusca.setVisible(false);
+        checkoutBusca.setVisible(false);
+    }
 
     public void tabHospedesHandler() {
         loadHospedes();
-        ObservableList<String> opcoesBuscaHospede = FXCollections.observableArrayList(
-                "Id", "Nome", "Sobrenome", "Telefone", "Nacionalidade");
-        opcoesDeBusca.setItems(opcoesBuscaHospede);
-        opcoesDeBusca.getSelectionModel().select(0);
+        loadOpcoesBuscaHospede();
 
         checkinBusca.setVisible(false);
         checkoutBusca.setVisible(false);
@@ -147,10 +136,7 @@ public class RegistrosController {
 
     public void tabReservasHandler() {
         loadReservas();
-        ObservableList<String> opcoesBuscaReserva = FXCollections.observableArrayList(
-                "Id", "Tipo de pagamento", "Valor");
-        opcoesDeBusca.setItems(opcoesBuscaReserva);
-        opcoesDeBusca.getSelectionModel().select(0);
+        loadOpcoesBuscaReserva();
 
         checkinBusca.setVisible(true);
         checkoutBusca.setVisible(true);
@@ -161,6 +147,101 @@ public class RegistrosController {
             botaoRemover.setDisable(true);
             botaoEditar.setDisable(true);
         }
+    }
+
+    public void botaoBuscarHandler() {
+        BuscaUtils buscaUtils = new BuscaUtils(checkinBusca, checkoutBusca, reservaService, hospedeService);
+        String termoDaBusca = inputBusca.getText();
+        String filtro = opcoesDeBusca.getSelectionModel().getSelectedItem();
+        int tabIndex = tabPainel.getSelectionModel().getSelectedIndex();
+
+        if (tabIndex == 0) {
+            List<Hospede> hospedeList = buscaUtils.buscarHospede(filtro, termoDaBusca);
+            tabelaHospedes.setItems(FXCollections.observableArrayList(hospedeList));
+        } else {
+            List<Reserva> reservaList = buscaUtils.buscarReserva(filtro, termoDaBusca);
+            tabelaReservas.setItems(FXCollections.observableArrayList(reservaList));
+        }
+    }
+
+    public void botaoVoltarHandler(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        new SceneRender(source, "menu-view.fxml").update();
+    }
+
+    public void botaoEditarHandler(ActionEvent event) throws IOException {
+        int tabSelecionada = tabPainel.getSelectionModel().getSelectedIndex();
+        if (tabSelecionada == 0) {
+            editarHospede();
+        } else {
+            editarReserva();
+        }
+    }
+
+    public void botaoRemoverHandler() {
+        int tabSelecionada = tabPainel.getSelectionModel().getSelectedIndex();
+        if (tabSelecionada == 0) {
+            removerHospede();
+        } else {
+            removerReserva();
+        }
+    }
+
+    public void botaoCopiarIDHandler() {
+        Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
+        StringSelection selection = new StringSelection(hospede.getId().toString());
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(selection, selection);
+
+        botaoCopiarID.setText("Copiado!");
+        botaoCopiarID.setDisable(true);
+        new Timeline(new KeyFrame(Duration.millis(1500), event -> {
+            botaoCopiarID.setText("Copiar ID");
+            botaoCopiarID.setDisable(false);
+        })).play();
+    }
+
+    public void botaoNovaReservaHandler(ActionEvent event) throws IOException {
+        Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
+//        NovaReservaModalFormController controller = new NovaReservaModalFormController(hospede, reservaService);
+        NovaReservaController controller = new NovaReservaController(hospede, reservaService);
+        new ModalRender("form-reserva-modal.fxml", controller).show();
+    }
+
+    public void removerHospede() {
+        Hospede hospedeSelecionado = tabelaHospedes.getSelectionModel().getSelectedItem();
+
+        var res = new Alerta().avisoPergunta("Deseja remover o item?");
+        if (res.equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
+
+        hospedeService.deleteOne(hospedeSelecionado.getId().toString());
+        tabelaHospedes.setItems(FXCollections.observableArrayList(hospedeService.findAll()));
+    }
+
+    private void removerReserva() {
+        Reserva reservaSelecionada = tabelaReservas.getSelectionModel().getSelectedItem();
+
+        var res = new Alerta().avisoPergunta("Deseja remover o item?");
+        if (res.equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
+
+        reservaService.deleteOne(reservaSelecionada.getId().toString());
+        tabelaReservas.setItems(FXCollections.observableArrayList(reservaService.findAll()));
+    }
+
+    private void editarReserva() throws IOException {
+        Reserva reservaSelecionada = tabelaReservas.getSelectionModel().getSelectedItem();
+        EditarReservaController controller = new EditarReservaController(reservaSelecionada, reservaService);
+        new ModalRender("form-reserva-modal.fxml", controller).show();
+        loadReservas();
+        tabelaReservas.refresh();
+    }
+
+    private void editarHospede() throws IOException {
+        Hospede hospedeSelecionado = tabelaHospedes.getSelectionModel().getSelectedItem();
+        EditarHospedeController controller = new EditarHospedeController(hospedeSelecionado);
+        new ModalRender("form-hospede-modal.fxml", controller).show();
+        loadHospedes();
+        tabelaHospedes.refresh();
     }
 
     private void configureHospedesTable() {
@@ -191,7 +272,6 @@ public class RegistrosController {
             botaoRemover.setDisable(false);
             botaoEditar.setDisable(false);
         });
-
     }
 
     private void loadHospedes() {
@@ -208,183 +288,17 @@ public class RegistrosController {
         tabelaReservas.setItems(reservasData);
     }
 
-    public void botaoBuscarHandler() {
-        String termoDaBusca = inputBusca.getText();
-        String filtro = opcoesDeBusca.getSelectionModel().getSelectedItem();
-        int tabIndex = tabPainel.getSelectionModel().getSelectedIndex();
-
-        if (tabIndex == 0) {
-            List<Hospede> hospedeList = buscarHospedePor(filtro, termoDaBusca);
-            tabelaHospedes.setItems(FXCollections.observableArrayList(hospedeList));
-        } else {
-            List<Reserva> reservaList = buscarReservaPor(filtro, termoDaBusca);
-            tabelaReservas.setItems(FXCollections.observableArrayList(reservaList));
-        }
+    private void loadOpcoesBuscaHospede() {
+        ObservableList<String> opcoesBuscaHospede = FXCollections.observableArrayList(
+                "Id", "Nome", "Sobrenome", "Telefone", "Nacionalidade");
+        opcoesDeBusca.setItems(opcoesBuscaHospede);
+        opcoesDeBusca.getSelectionModel().select(1);
     }
 
-    private List<Hospede> buscarHospedePor(String filtro, String termo) {
-        List<Hospede> hospedes = hospedeService.findAll();
-        hospedes = switch (filtro) {
-            case "Id" -> hospedes.stream().filter(
-                    hospede -> hospede.getId().toString().contains(termo)).toList();
-            case "Nome" -> hospedes.stream().filter(
-                    hospede -> hospede.getNome().contains(termo)).toList();
-            case "Sobrenome" -> hospedes.stream().filter(
-                    hospede -> hospede.getSobrenome().contains(termo)).toList();
-            case "Telefone" -> hospedes.stream().filter(
-                    hospede -> hospede.getTelefone().contains(termo)).toList();
-            case "Nacionalidade" -> hospedes.stream().filter(
-                    hospede -> hospede.getNacionalidade().contains(termo)).toList();
-            default -> hospedeService.findAll();
-        };
-
-        return hospedes;
-    }
-
-    private List<Reserva> buscarReservaPor(String filtro, String termo) {
-        List<Reserva> reservas = reservaService.findAll();
-        tabelaReservas.setItems(FXCollections.observableArrayList(reservas));
-
-        verificaFiltroDeData(checkinBusca);
-        verificaFiltroDeData(checkoutBusca);
-
-        reservas = reservas.stream().filter(this::filterCheckin).toList();
-        reservas = reservas.stream().filter(this::filterCheckout).toList();
-
-        reservas = switch (filtro) {
-            case "Id" -> reservas.stream().filter(
-                    hospede -> hospede.getId().toString().contains(termo)).toList();
-            case "Tipo de pagamento" -> reservas.stream().filter(
-                    hospede -> hospede.getFormaDePagamento().label.contains(termo)).toList();
-            case "Valor" -> reservas.stream().filter(
-                    hospede -> CustomCurrency.format(hospede.getValorTotal()).contains(termo)).toList();
-            default -> reservaService.findAll();
-        };
-        return reservas;
-    }
-
-    private boolean filterCheckin(Reserva reserva) {
-        LocalDate date = checkinBusca.getValue();
-        if (date == null) return true;
-        return date.isBefore(reserva.getCheckin());
-    }
-
-    private boolean filterCheckout(Reserva reserva) {
-        LocalDate date = checkoutBusca.getValue();
-        if (date == null) return true;
-        return date.isAfter(reserva.getCheckout());
-    }
-
-
-    public void verificaFiltroDeData(DatePicker datePicker) {
-        String dataBuscarText = datePicker.getEditor().getText();
-        if (dataBuscarText.isEmpty()) datePicker.setValue(null);
-    }
-
-    public void removeItemSelecionadoHandler() {
-        int tabSelecionada = tabPainel.getSelectionModel().getSelectedIndex();
-
-        if (tabSelecionada == 0) {
-            removeHospedeSelecionado();
-        } else {
-            removeReservaSelecionado();
-        }
-    }
-
-
-    public void removeHospedeSelecionado() {
-        Hospede hospedeSelecionado = tabelaHospedes.getSelectionModel().getSelectedItem();
-        if (hospedeSelecionado == null) return;
-
-        var res = mostrarConfirmacao().get();
-        if (res.getButtonData().equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
-
-        hospedeService.deleteOne(hospedeSelecionado.getId().toString());
-        tabelaHospedes.setItems(FXCollections.observableArrayList(hospedeService.findAll()));
-    }
-
-    private void removeReservaSelecionado() {
-        Reserva reservaSelecionada = tabelaReservas.getSelectionModel().getSelectedItem();
-        if (reservaSelecionada == null) return;
-
-        var res = mostrarConfirmacao().get();
-        if (res.getButtonData().equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
-
-        reservaService.deleteOne(reservaSelecionada.getId().toString());
-        tabelaReservas.setItems(FXCollections.observableArrayList(reservaService.findAll()));
-    }
-
-
-
-    public void botaoEditarHandler() {
-        int tabSelecionada = tabPainel.getSelectionModel().getSelectedIndex();
-        if (tabSelecionada == 0) {
-            editarHospede();
-        } else {
-            editarReserva();
-        }
-    }
-
-    private void editarReserva() {
-        Reserva reservaSelecionada = tabelaReservas.getSelectionModel().getSelectedItem();
-        try {
-            EditarReservaModalFormController controller = new EditarReservaModalFormController(reservaSelecionada, reservaService);
-            new ModalRender("modal-reserva-form-view.fxml", controller).show();
-            tabelaReservas.refresh();
-        } catch (IOException exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
-
-    private void editarHospede() {
-        Hospede hospedeSelecionado = tabelaHospedes.getSelectionModel().getSelectedItem();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(IndexPage.class.getResource("editar-registro-hospede-view.fxml"));
-            fxmlLoader.setController(new EditarHospedeModalFormController(hospedeSelecionado));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setAlwaysOnTop(true);
-            stage.setScene(scene);
-            stage.showAndWait();
-            tabelaHospedes.refresh();
-        } catch (IOException exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
-
-    private Optional<ButtonType> mostrarConfirmacao() {
-        Alert alerta = new Alert(
-                Alert.AlertType.WARNING, "Confirme para remover.",
-                new ButtonType("Remover", ButtonBar.ButtonData.OK_DONE),
-                new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE));
-        alerta.setTitle("Mensagem!");
-        alerta.setHeaderText(null);
-        return alerta.showAndWait();
-    }
-
-    public void botaoVoltarHandler(ActionEvent event) throws IOException {
-        Node source = (Node) event.getSource();
-        new AppScene(source, "menu-view.fxml").update();
-    }
-
-    public void botaoCopiarIDHandler() {
-        Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
-        StringSelection selection = new StringSelection(hospede.getId().toString());
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(selection, selection);
-
-        botaoCopiarID.setText("Copiado!");
-        botaoCopiarID.setDisable(true);
-        new Timeline(new KeyFrame(Duration.millis(1000), event -> {
-            botaoCopiarID.setText("Copiar ID");
-            botaoCopiarID.setDisable(false);
-        })).play();
-    }
-
-    public void botaoNovaReservaHandler(ActionEvent event) throws IOException {
-        Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
-        NovaReservaModalFormController controller = new NovaReservaModalFormController(hospede, reservaService);
-        new ModalRender("modal-reserva-form-view.fxml", controller).show();
+    public void loadOpcoesBuscaReserva() {
+        ObservableList<String> opcoesBuscaReserva = FXCollections.observableArrayList(
+                "Id", "Hospede ID", "Tipo de pagamento", "Valor");
+        opcoesDeBusca.setItems(opcoesBuscaReserva);
+        opcoesDeBusca.getSelectionModel().select(0);
     }
 }

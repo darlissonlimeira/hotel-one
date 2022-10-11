@@ -52,7 +52,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="inputNome">
+                        <TextField fx:id="inputNome" onKeyTyped="#inputNomeHandler">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin></TextField>
@@ -64,7 +64,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="inputSobrenome">
+                        <TextField fx:id="inputSobrenome" onKeyTyped="#inputSobrenomeHandler">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin></TextField>
@@ -89,7 +89,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="inputTelefone">
+                        <TextField fx:id="inputTelefone" onKeyTyped="#inputTelefoneHandler">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -102,7 +102,7 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="inputNacionalidade" prefHeight="24.0" prefWidth="367.0">
+                        <ChoiceBox fx:id="inputNacionalidade" onAction="#inputNacionalidadeHandler" prefHeight="24.0" prefWidth="367.0">
                            <VBox.margin>
                               <Insets bottom="2.0" />
                            </VBox.margin>
@@ -136,7 +136,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
+                              <Button fx:id="botaoSalvar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botaoSalvarHandler" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: #2B5292;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>

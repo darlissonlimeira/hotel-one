@@ -1,6 +1,6 @@
 package com.hotelone.utils;
 
-import com.hotelone.IndexPage;
+import com.hotelone.Index;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,7 +20,7 @@ public class AppScene {
     }
 
     public void update() throws IOException {
-        FXMLLoader loader = new FXMLLoader(IndexPage.class.getResource(fxmlName));
+        FXMLLoader loader = new FXMLLoader(Index.class.getResource(fxmlName));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
     }
