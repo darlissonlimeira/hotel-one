@@ -9,6 +9,9 @@ O Hotel Alura, conhecido por suas espetaculares instalações e pacotes promocio
 - Calcule o valor da reserva com base no número de dias da reserva e uma taxa diária com o valor atribuído por você em na moeda Real. Por exemplo, se tivermos uma reserva de 3 dias e o valor de nossa diária é R$ 120,00 devemos multiplicar esses 3 dias pelo valor da diária que seria R$ 360, tudo isso deve ser feito automaticamente e mostrado ao usuário antes de salvar a reserva;
 - Banco de dados para armazenar todos os dados solicitados anteriormente.
 
+### Video de apresentação
+[![Watch the video](video-tumb.png)](video-hotelone.webm)
+
 ### Tecnologias utilizadas:
 
 - Java 17;
