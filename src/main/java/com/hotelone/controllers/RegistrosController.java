@@ -9,6 +9,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -215,7 +216,8 @@ public class RegistrosController {
         if (res.equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
 
         hospedeService.deleteOne(hospedeSelecionado.getId().toString());
-        tabelaHospedes.setItems(FXCollections.observableArrayList(hospedeService.findAll()));
+        loadHospedes();
+
     }
 
     private void removerReserva() {
@@ -225,7 +227,13 @@ public class RegistrosController {
         if (res.equals(ButtonBar.ButtonData.CANCEL_CLOSE)) return;
 
         reservaService.deleteOne(reservaSelecionada.getId().toString());
-        tabelaReservas.setItems(FXCollections.observableArrayList(reservaService.findAll()));
+        loadReservas();
+        if(tabelaReservas.getItems().isEmpty()) {
+            botaoCopiarID.setDisable(true);
+            botaoNovaReserva.setDisable(true);
+            botaoEditar.setDisable(true);
+            botaoRemover.setDisable(true);
+        }
     }
 
     private void editarReserva() throws IOException {
@@ -233,7 +241,6 @@ public class RegistrosController {
         EditarReservaController controller = new EditarReservaController(reservaSelecionada, reservaService);
         new ModalRender("form-reserva-modal.fxml", controller).show();
         loadReservas();
-        tabelaReservas.refresh();
     }
 
     private void editarHospede() throws IOException {
@@ -241,7 +248,6 @@ public class RegistrosController {
         EditarHospedeController controller = new EditarHospedeController(hospedeSelecionado);
         new ModalRender("form-hospede-modal.fxml", controller).show();
         loadHospedes();
-        tabelaHospedes.refresh();
     }
 
     private void configureHospedesTable() {
@@ -258,6 +264,12 @@ public class RegistrosController {
             botaoRemover.setDisable(false);
             botaoNovaReserva.setDisable(false);
         });
+        tabelaHospedes.getItems().addListener((ListChangeListener<? super Hospede>) change -> {
+            botaoCopiarID.setDisable(true);
+            botaoEditar.setDisable(true);
+            botaoRemover.setDisable(true);
+            botaoNovaReserva.setDisable(true);
+        });
     }
 
     private void configureReservasTable() {
@@ -272,6 +284,12 @@ public class RegistrosController {
             botaoRemover.setDisable(false);
             botaoEditar.setDisable(false);
         });
+        tabelaReservas.getItems().addListener((ListChangeListener<? super Reserva>) change -> {
+            if(tabelaReservas.getItems().isEmpty()){
+                botaoRemover.setDisable(true);
+                botaoEditar.setDisable(true);
+            }
+        });
     }
 
     private void loadHospedes() {
@@ -279,6 +297,7 @@ public class RegistrosController {
         ObservableList<Hospede> hospedesData = FXCollections.observableArrayList(hospedeList);
         tabelaHospedes.getSelectionModel().clearSelection();
         tabelaHospedes.setItems(hospedesData);
+        tabelaHospedes.refresh();
     }
 
     private void loadReservas() {
@@ -286,6 +305,7 @@ public class RegistrosController {
         ObservableList<Reserva> reservasData = FXCollections.observableArrayList(reservaList);
         tabelaReservas.getSelectionModel().clearSelection();
         tabelaReservas.setItems(reservasData);
+        tabelaReservas.refresh();
     }
 
     private void loadOpcoesBuscaHospede() {
