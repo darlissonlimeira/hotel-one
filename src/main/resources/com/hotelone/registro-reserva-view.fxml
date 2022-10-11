@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -121,6 +122,9 @@
                      <font>
                         <Font size="16.0"/>
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
                   </Button>
                   <Button fx:id="botaoContinuar" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                           onAction="#botaoContinuarHandler" prefHeight="34.0" prefWidth="278.0"
@@ -135,6 +139,9 @@
                      <font>
                         <Font size="16.0"/>
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
                   </Button>
                </HBox>
             </VBox>

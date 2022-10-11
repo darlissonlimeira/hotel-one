@@ -107,6 +107,7 @@ public class RegistrosController {
     public void initialize() {
         configureHospedesTable();
         configureReservasTable();
+        loadOpcoesBuscaHospede();
 
         botaoCopiarID.setDisable(true);
         botaoNovaReserva.setDisable(true);
@@ -203,7 +204,6 @@ public class RegistrosController {
 
     public void botaoNovaReservaHandler(ActionEvent event) throws IOException {
         Hospede hospede = tabelaHospedes.getSelectionModel().getSelectedItem();
-//        NovaReservaModalFormController controller = new NovaReservaModalFormController(hospede, reservaService);
         NovaReservaController controller = new NovaReservaController(hospede, reservaService);
         new ModalRender("form-reserva-modal.fxml", controller).show();
     }
@@ -299,6 +299,6 @@ public class RegistrosController {
         ObservableList<String> opcoesBuscaReserva = FXCollections.observableArrayList(
                 "Id", "Hospede ID", "Tipo de pagamento", "Valor");
         opcoesDeBusca.setItems(opcoesBuscaReserva);
-        opcoesDeBusca.getSelectionModel().select(0);
+        opcoesDeBusca.getSelectionModel().select(1);
     }
 }
