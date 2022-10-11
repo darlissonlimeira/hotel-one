@@ -20,3 +20,6 @@ https://user-images.githubusercontent.com/49912598/195216500-907928a1-d7ed-46fb-
 - JDBC 21.7.0;
 - Driver Mysql 8.0.30;
 - JavaFx 19;
+
+### Badge do desafio
+![badge-hotel](https://user-images.githubusercontent.com/49912598/195218550-a6e300e6-1aeb-4d93-9417-de18e4678467.png)
